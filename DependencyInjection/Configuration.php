@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Neo4j\Neo4jBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;

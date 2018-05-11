@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Neo4j\Neo4jBundle\EventSubscriber;
 
 use GraphAware\Neo4j\Client\Event\FailureEvent;

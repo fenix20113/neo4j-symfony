@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Neo4j\Neo4jBundle\DependencyInjection;
 
 use GraphAware\Bolt\Driver as BoltDriver;
@@ -56,7 +54,7 @@ class Neo4jExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function getConfiguration(array $config, ContainerBuilder $container): Configuration
+    public function getConfiguration(array $config, ContainerBuilder $container)
     {
         return new Configuration($container->getParameter('kernel.debug'));
     }
@@ -64,7 +62,7 @@ class Neo4jExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function getAlias(): string
+    public function getAlias()
     {
         return 'neo4j';
     }
@@ -75,7 +73,7 @@ class Neo4jExtension extends Extension
      *
      * @return array with service ids
      */
-    private function handleClients(array &$config, ContainerBuilder $container): array
+    private function handleClients(array &$config, ContainerBuilder $container)
     {
         if (empty($config['clients'])) {
             // Add default entity manager if none set.
@@ -119,7 +117,7 @@ class Neo4jExtension extends Extension
      *
      * @return array
      */
-    private function handleEntityMangers(array &$config, ContainerBuilder $container, array $clientServiceIds): array
+    private function handleEntityMangers(array &$config, ContainerBuilder $container, array $clientServiceIds)
     {
         $serviceIds = [];
         foreach ($config['entity_managers'] as $name => $data) {
@@ -154,7 +152,7 @@ class Neo4jExtension extends Extension
      *
      * @return array with service ids
      */
-    private function handleConnections(array &$config, ContainerBuilder $container): array
+    private function handleConnections(array &$config, ContainerBuilder $container)
     {
         $serviceIds = [];
         $firstName = null;
@@ -191,7 +189,7 @@ class Neo4jExtension extends Extension
      *
      * @return string
      */
-    private function getUrl(array $config): string
+    private function getUrl(array $config)
     {
         if (null !== $config['dsn']) {
             return $config['dsn'];
@@ -232,7 +230,7 @@ class Neo4jExtension extends Extension
      *
      * @thorws \LogicException if EntityManagers os not installed but they are configured.
      */
-    private function validateEntityManagers(array &$config): bool
+    private function validateEntityManagers(array &$config)
     {
         $dependenciesInstalled = class_exists(EntityManager::class);
         $entityManagersConfigured = !empty($config['entity_managers']);

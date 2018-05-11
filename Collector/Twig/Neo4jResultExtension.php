@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 
 namespace Neo4j\Neo4jBundle\Collector\Twig;
 
@@ -28,12 +27,12 @@ class Neo4jResultExtension extends \Twig_Extension
      *
      * @return string
      */
-    public function getType($object): string
+    public function getType($object)
     {
         return $this->doGetType($object, true);
     }
 
-    public function getName(): string
+    public function getName()
     {
         return 'neo4j.result';
     }
@@ -44,7 +43,7 @@ class Neo4jResultExtension extends \Twig_Extension
      *
      * @return string
      */
-    private function doGetType($object, bool $recursive): string
+    private function doGetType($object, bool $recursive)
     {
         if ($object instanceof Node) {
             return sprintf('%s: %s', $object->identity(), implode(', ', $object->labels()));

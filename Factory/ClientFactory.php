@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 
 namespace Neo4j\Neo4jBundle\Factory;
 
@@ -41,7 +40,7 @@ final class ClientFactory
      *
      * @return ClientInterface
      */
-    public function create(array $names): ClientInterface
+    public function create(array $names)
     {
         // Create a new connection manager specific for this client
         $clientConnectionManager = new ConnectionManager();
