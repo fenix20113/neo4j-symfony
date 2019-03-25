@@ -38,7 +38,7 @@ class Neo4jExtension extends Extension
         if ($this->validateEntityManagers($config)) {
             $loader->load('entity_manager.xml');
             $this->handleEntityMangers($config, $container, $clientServiceIds);
-            $container->setAlias('neo4j.entity_manager', 'neo4j.entity_manager.default');
+            $container->setAlias('neo4j.entity_manager', 'neo4j.entity_manager.default')->setPublic(true);
         }
 
         // add aliases for the default services
